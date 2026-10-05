@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Dota Meta</title>
+    <link rel="stylesheet" href="style.css?v=6">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Главный экран -->
+    <div id="mainScreen">
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="🔍 Поиск героя...">
+        </div>
+
+        <div class="role-filters">
+            <button class="filter-btn active" data-role="ALL">ВСЕ</button>
+            <button class="filter-btn" data-role="CARRY">CARRY</button>
+            <button class="filter-btn" data-role="MID">MID</button>
+            <button class="filter-btn" data-role="OFFLANE">OFFLANE</button>
+            <button class="filter-btn" data-role="SUPPORT">SUPPORT</button>
+        </div>
+
+        <div class="header-title">
+            <h2 id="categoryTitle">👥 Все Герои</h2>
+        </div>
+
+        <div class="heroes-list" id="heroesList">
+            <div style="text-align:center; padding:20px; color:gray;">Загрузка меты...</div>
+        </div>
+    </div>
+
+    <!-- Полноэкранное окно профиля героя -->
+    <div id="heroModal" class="modal-full">
+        <div class="modal-header-image" id="modalHeaderBg">
+            <div class="back-btn" id="closeModal">❮</div>
+            <div class="header-info">
+                <h1 id="modalName">Имя Героя</h1>
+                <div id="modalRole" class="hero-role">Роль</div>
+            </div>
+        </div>
+
+        <div class="modal-body-scroll">
+            
+            <div class="section-title">
+                <span class="sec-icon">🗡</span> Топ 5 Контрпиков
+            </div>
+            <div class="counters-row" id="modalCounters"></div>
+
+            <div class="section-title" style="margin-top: 25px;">
+                <span class="sec-icon">📦</span> Сборка на Героя
+            </div>
+            <!-- Добавлен отступ вниз сюда, так как это теперь последний блок -->
+            <div class="build-container" style="margin-bottom: 40px;">
+                
+                <div class="build-stage stage-start">НАЧАЛЬНЫЙ ЗАКУП</div>
+                <div class="items-row" id="buildStart"></div>
+
+                <div class="build-stage stage-early">РАННЯЯ ИГРА</div>
+                <div class="items-row" id="buildEarly"></div>
+
+                <div class="build-stage stage-core">ОСНОВНЫЕ ПРЕДМЕТЫ</div>
+                <div class="items-row" id="buildCore"></div>
+
+                <div class="build-stage stage-late">ПОЗДНЯЯ ИГРА</div>
+                <div class="items-row" id="buildLate"></div>
+
+                <div class="build-stage stage-sit">СИТУАТИВНЫЕ ПРЕДМЕТЫ</div>
+                <div class="items-row" id="buildSituational"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
